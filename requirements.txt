@@ -1,0 +1,16 @@
+# Versions actually used in the Google Colab T4 run (2026-11-18, Python 3.13.16), read from pip list.
+# All steps 01-07 ran there; only the synthetic smoke test also ran in a separate CPU workspace.
+torch==2.14.1
+transformers==5.22.1
+datasets==4.8.5
+accelerate==1.15.0
+sentence-transformers==5.7.0
+spacy==3.8.18
+# en_core_web_sm  -> python -m spacy download en_core_web_sm
+scikit-learn==1.6.1
+scipy==1.16.3
+numpy==2.4.6
+pandas==2.2.3
+PyYAML==6.0.3
+matplotlib
+# selfcheckgpt==0.1.7 (optional, --no-deps): not importable under transformers 5; see research_decisions.md D10

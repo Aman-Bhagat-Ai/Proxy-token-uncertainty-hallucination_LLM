@@ -1,0 +1,10 @@
+data/wikibio_prepared.json
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.log
+paper/*.bbl
+paper/*.blg
+paper/*.out
+paper/*.fls
+paper/*.fdb_latexmk

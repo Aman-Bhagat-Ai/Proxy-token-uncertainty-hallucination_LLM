@@ -1,0 +1,23 @@
+# Research decisions log (literature → experiment)
+
+Labels: **VERIFIED** (checked against the original source or an actual run), **INFERRED** (plausible, needs testing), **UNKNOWN**.
+
+| ID | Date (IST) | Decision | Reason | Evidence | Status |
+|---|---|---|---|---|---|
+| D1 | 2026-11-18 | Stay in the review's area and test its agenda items 8.2 (semantic-anchor weighting) and 8.3 (two-stage screening). | The course requires continuity with the review. These two items are concrete, cheap to implement and untested (review Sec. 7). | Review `main.tex`, Secs. 6–8. | VERIFIED (review text) |
+| D2 | 2026-11-18 | Use SelfCheckGPT WikiBio as the only dataset. | It is the dataset behind the review's key numbers (87.51 / 93.42). It is openly downloadable, has sentence-level labels and includes 20 samples, so SelfCheckGPT-NLI needs no new generation. | HF dataset card; Manakul et al. 2023, Table 2 (re-read from arXiv 2303.08896). | VERIFIED |
+| D3 | 2026-11-18 | Black-box / proxy setting instead of white-box. | The GPT-3 (text-davinci-003) log-probs are not in the released data and the model is retired. The proxy setting is also the realistic one for API models. SelfCheckGPT Table 8 gives proxy reference points. | Dataset fields inspected in the run (no logprob field). | VERIFIED |
+| D4 | 2026-11-18 | Baselines: random (must give 72.96/29.72/27.04) and SelfCheckGPT-NLI (must give ≈92.50). | Two independent validation targets: one checks the label pipeline and metric code, the other checks the model pipeline. | `results/validation.json` | VERIFIED (both reproduced) |
+| D5 | 2026-11-18 | Freeze the protocol before any metric: AUC-PR NonFact primary; anchor α=0 primary; cascade stage-1 = Qwen2.5-3B Avg(H); passage bootstrap. | Prevents test-set tuning on a dataset that has no train split. | `configs/experiment.yaml` (written before step 02 ran). | VERIFIED |
+| D6 | 2026-11-18 | Proxies ≤ 3B parameters. | A Tesla T4 (16 GB) cannot hold a 7B model in fp16. 4-bit quantisation would add a confound. | Colab GPU = Tesla T4, 15,360 MiB. | VERIFIED |
+| D7 | 2026-11-18 | **Protocol change:** added Pythia-1.4B and Qwen2.5-1.5B-Instruct. | The first four proxies scored in 10–27 s each, so two more were affordable: a third family (GPT-NeoX lineage, which SelfCheckGPT reports for NeoX-20B) and an instruction-tuned variant. Added **before any metric was computed**. | Notebook cell 4; `results/logs/02_proxy_*.json`. | VERIFIED |
+| D8 | 2026-11-18 | SAR relevance at word level, not token level. | Lets one relevance vector serve all 6 tokenizers and avoids scoring sub-word fragments. Documented as a deviation from SAR. | `src/tuq/relevance.py` | INFERRED (effect of the deviation not measured) |
+| D9 | 2026-11-18 | **Post-hoc, exploratory:** add `07_diagnostics.py` (sign-flip, within-passage centring, anchor-density control). | Every pre-specified proxy score came out at or below random. The task asks for error analysis of negative results. These analyses explain the result but are **not** used to select a method. | `results/diagnostics_*.csv` | VERIFIED (run); interpretation INFERRED |
+| D10 | 2026-11-18 | Replace the official-package equivalence check with a line-by-line re-implementation. | `selfcheckgpt` 0.1.7 calls `tokenizer.batch_encode_plus`, which Transformers 5.22.1 removed. | `results/logs/04_nli_official_check.json` (error) → `04b_nli_reference_check.json` (max diff 4.4e-4). | VERIFIED |
+| D11 | 2026-11-18 | The threshold-transfer analysis is reported as uninformative. | With chance-level scores the F1-optimal threshold flags 90–99 % of sentences, so transfer F1 only reflects the base rate. | `results/threshold_transfer.csv` | VERIFIED |
+| D12 | 2026-11-18 | **Gap ranking revised** relative to the 22 Oct Prompt 02 matrix (`docs/prompts_01_02_original_2026-10-22.pdf`): anchor weighting kept as the core; early prediction and decoding robustness dropped; proxy setting (model dependence) and two-stage screening added. | Early prediction needs token- or claim-level labels and decoding robustness needs new generations with new human labels, and neither exists for WikiBio. The generator's log-probs are not released (D3), which makes the proxy setting the realistic one. The two-stage test became cheap because the dataset already contains 20 samples per passage. | Dataset fields; SelfCheckGPT Tables 2 and 8 | VERIFIED |
+
+## Open items (UNKNOWN)
+* Whether anchor weighting helps with **white-box** probabilities from the generator itself (not testable with this data).
+* Whether a ≥7B proxy removes the inversion (SelfCheckGPT's LLaMA-30B suggests partly).
+* Sensitivity to the proxy prefix string (not varied).
