@@ -1,0 +1,14 @@
+feature,AUCPR,AUCPR_flipped,AUROC
+anchor_word_fraction,76.205,69.839,56.371
+mean_anchor_frac[accurate],0.326,,
+mean_n_words[accurate],17.630,,
+mean_anchor_frac[major_inaccurate],0.346,,
+mean_n_words[major_inaccurate],17.137,,
+mean_anchor_frac[minor_inaccurate],0.387,,
+mean_n_words[minor_inaccurate],17.803,,
+"corr(anchor_frac, opt1.3b::avg_nlp)",3.213,,
+"corr(anchor_frac, pythia1.4b::avg_nlp)",3.423,,
+"corr(anchor_frac, qwen0.5b::avg_nlp)",1.301,,
+"corr(anchor_frac, qwen1.5b::avg_nlp)",1.554,,
+"corr(anchor_frac, qwen1.5b-inst::avg_nlp)",2.619,,
+"corr(anchor_frac, qwen3b::avg_nlp)",4.440,,

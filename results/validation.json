@@ -1,0 +1,36 @@
+{
+ "n_passages": 238,
+ "n_sentences": 1908,
+ "label_counts": {
+  "major_inaccurate": 761,
+  "minor_inaccurate": 631,
+  "accurate": 516
+ },
+ "random_baseline": {
+  "NonFact": 72.95597484276729,
+  "NonFact*": 29.71813725490196,
+  "Factual": 27.044025157232703
+ },
+ "random_baseline_paper": {
+  "NonFact": 72.96,
+  "NonFact*": 29.72,
+  "Factual": 27.04
+ },
+ "nonfact_star_kept_sentences": 1632,
+ "random_scores_aucpr_mean_of_10": 73.57744466058026,
+ "selfcheck_nli_ours": {
+  "NonFact": 92.50025412063549,
+  "NonFact*": 45.16001211150857,
+  "Factual": 66.08400191509307,
+  "AUROC": 83.69336407377706,
+  "Pearson": 74.13050746658642,
+  "Spearman": 73.7665674632352
+ },
+ "selfcheck_nli_paper": {
+  "NonFact": 92.5,
+  "NonFact*": 45.17,
+  "Factual": 66.08,
+  "Pearson": 74.14,
+  "Spearman": 73.78
+ }
+}

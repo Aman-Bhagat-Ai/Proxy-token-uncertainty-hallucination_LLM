@@ -1,0 +1,11 @@
+{
+ "model": "facebook/opt-1.3b",
+ "prefix": "The following is a Wikipedia biography.\n\n",
+ "dtype": "float16",
+ "tokens_scored": 43362,
+ "tokens_unassigned": 16,
+ "truncated_passages": 0,
+ "seconds": 13.2,
+ "vocab_size": 50272,
+ "gpu": "Tesla T4"
+}

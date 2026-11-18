@@ -1,0 +1,11 @@
+{
+ "model": "Qwen/Qwen2.5-3B",
+ "prefix": "The following is a Wikipedia biography.\n\n",
+ "dtype": "float16",
+ "tokens_scored": 48005,
+ "tokens_unassigned": 19,
+ "truncated_passages": 0,
+ "seconds": 26.6,
+ "vocab_size": 151936,
+ "gpu": "Tesla T4"
+}

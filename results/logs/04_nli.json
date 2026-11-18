@@ -1,0 +1,10 @@
+{
+ "model": "potsawee/deberta-v3-large-mnli",
+ "pairs": 38160,
+ "seconds": 680.5,
+ "num_labels": 2,
+ "id2label": {
+  "0": "LABEL_0",
+  "1": "LABEL_1"
+ }
+}

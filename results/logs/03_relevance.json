@@ -1,0 +1,5 @@
+{
+ "model": "cross-encoder/stsb-roberta-large",
+ "pairs": 33372,
+ "seconds": 439.3
+}

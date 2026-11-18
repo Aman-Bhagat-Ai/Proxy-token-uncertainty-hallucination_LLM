@@ -1,0 +1,47 @@
+# Frozen experimental protocol (G3). Fixed BEFORE any score was computed.
+# Changes after freezing must be logged in research_decisions.md.
+
+dataset:
+  hf_id: potsawee/wiki_bio_gpt3_hallucination   # SelfCheckGPT WikiBio (238 passages, 1908 sentences)
+  split: evaluation                              # the only split; used purely as a test set
+  label_map: {accurate: 0.0, minor_inaccurate: 0.5, major_inaccurate: 1.0}
+
+proxy_lms:            # open-weight proxy LMs that re-score the GPT-3 text (black-box setting)
+  - Qwen/Qwen2.5-0.5B
+  - Qwen/Qwen2.5-1.5B
+  - Qwen/Qwen2.5-3B
+  - facebook/opt-1.3b
+  - EleutherAI/pythia-1.4b
+  - Qwen/Qwen2.5-1.5B-Instruct
+proxy_prefix: "The following is a Wikipedia biography.\n\n"
+proxy_dtype: float16
+max_length: 1024
+
+relevance:
+  cross_encoder: cross-encoder/stsb-roberta-large   # same similarity model family as SAR (Duan et al., 2024)
+  unit: word                                       # word-level removal (deviation from SAR's token level)
+
+anchors:
+  spacy_model: en_core_web_sm
+  pos: [PROPN, NUM]
+  entity_labels: [PERSON, NORP, FAC, ORG, GPE, LOC, PRODUCT, EVENT, WORK_OF_ART, LAW, LANGUAGE, DATE, TIME, PERCENT, MONEY, QUANTITY, ORDINAL, CARDINAL]
+  alpha_primary: 0.0                 # weight of non-anchor tokens (0 = anchors only); fixed a priori
+  alpha_sensitivity: [0.0, 0.1, 0.25, 0.5, 1.0]
+
+selfcheck_nli:
+  model: potsawee/deberta-v3-large-mnli
+  n_samples: 20
+  n_sensitivity: [1, 2, 3, 5, 10, 20]
+  batch_size: 32
+
+cascade:
+  stage1_score: "Qwen/Qwen2.5-3B::avg_ent"   # pre-specified: Avg(H) of the largest proxy (best proxy family in SelfCheckGPT Table 2)
+  flag_fractions: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  random_control_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+evaluation:
+  primary_metric: AUC-PR NonFact (higher is better), sklearn precision_recall_curve + auc, as in SelfCheckGPT
+  secondary: [AUC-PR NonFact*, AUC-PR Factual, passage Pearson, passage Spearman, AUROC NonFact]
+  bootstrap_resamples: 1000
+  bootstrap_unit: passage
+  seed: 0

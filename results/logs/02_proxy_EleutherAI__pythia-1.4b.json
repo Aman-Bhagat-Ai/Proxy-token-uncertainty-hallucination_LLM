@@ -1,0 +1,11 @@
+{
+ "model": "EleutherAI/pythia-1.4b",
+ "prefix": "The following is a Wikipedia biography.\n\n",
+ "dtype": "float16",
+ "tokens_scored": 43930,
+ "tokens_unassigned": 15,
+ "truncated_passages": 0,
+ "seconds": 9.3,
+ "vocab_size": 50304,
+ "gpu": "Tesla T4"
+}

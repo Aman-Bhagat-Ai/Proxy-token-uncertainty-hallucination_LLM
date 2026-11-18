@@ -1,0 +1,80 @@
+comparison,point,lo,hi,p_le_0
+qwen0.5b::avg_nlp,66.341,61.760,71.020,
+qwen0.5b::avg_ent,69.458,65.052,74.066,
+qwen0.5b::sar_nlp,66.941,62.292,71.528,
+qwen0.5b::sar_ent,68.899,64.387,73.490,
+qwen0.5b::anchor_nlp,68.951,64.656,73.311,
+qwen0.5b::anchor_ent,70.302,65.882,74.760,
+qwen0.5b::max_nlp,68.712,64.282,73.034,
+qwen1.5b::avg_nlp,67.300,62.886,71.901,
+qwen1.5b::avg_ent,70.538,66.215,74.985,
+qwen1.5b::sar_nlp,68.470,63.953,72.962,
+qwen1.5b::sar_ent,70.291,65.955,74.631,
+qwen1.5b::anchor_nlp,70.332,66.195,74.730,
+qwen1.5b::anchor_ent,71.793,67.558,76.259,
+qwen1.5b::max_nlp,68.950,64.343,73.460,
+qwen3b::avg_nlp,68.368,63.972,72.750,
+qwen3b::avg_ent,70.646,66.269,75.066,
+qwen3b::sar_nlp,69.194,64.902,73.474,
+qwen3b::sar_ent,70.484,66.042,74.749,
+qwen3b::anchor_nlp,70.699,66.674,74.944,
+qwen3b::anchor_ent,72.501,68.308,76.704,
+qwen3b::max_nlp,70.158,65.775,74.368,
+opt1.3b::avg_nlp,66.892,62.311,71.646,
+opt1.3b::avg_ent,72.056,67.545,76.630,
+opt1.3b::sar_nlp,68.268,63.467,72.925,
+opt1.3b::sar_ent,72.007,67.499,76.625,
+opt1.3b::anchor_nlp,70.210,65.938,74.494,
+opt1.3b::anchor_ent,72.883,68.719,77.099,
+opt1.3b::max_nlp,68.901,64.275,73.455,
+pythia1.4b::avg_nlp,67.043,62.567,71.619,
+pythia1.4b::avg_ent,72.562,68.221,77.044,
+pythia1.4b::sar_nlp,68.614,64.057,73.110,
+pythia1.4b::sar_ent,72.764,68.553,77.180,
+pythia1.4b::anchor_nlp,70.377,66.192,74.708,
+pythia1.4b::anchor_ent,73.231,69.065,77.473,
+pythia1.4b::max_nlp,68.090,63.380,72.606,
+qwen1.5b-inst::avg_nlp,67.539,63.195,72.110,
+qwen1.5b-inst::avg_ent,70.807,66.330,75.420,
+qwen1.5b-inst::sar_nlp,68.652,64.225,73.078,
+qwen1.5b-inst::sar_ent,70.540,66.155,74.962,
+qwen1.5b-inst::anchor_nlp,70.541,66.436,74.861,
+qwen1.5b-inst::anchor_ent,72.098,67.887,76.583,
+qwen1.5b-inst::max_nlp,69.033,64.621,73.372,
+nli,92.500,90.791,94.121,
+qwen0.5b::anchor_nlp - qwen0.5b::avg_nlp,2.610,1.279,4.220,0.000
+qwen0.5b::anchor_ent - qwen0.5b::avg_ent,0.844,-0.702,2.341,0.132
+qwen0.5b::sar_nlp - qwen0.5b::avg_nlp,0.600,-0.361,1.485,0.094
+qwen0.5b::sar_ent - qwen0.5b::avg_ent,-0.559,-1.397,0.303,0.901
+qwen0.5b::anchor_ent - qwen0.5b::sar_ent,1.403,0.084,2.630,0.019
+qwen0.5b::anchor_nlp - qwen0.5b::sar_nlp,2.011,0.882,3.262,0.000
+qwen1.5b::anchor_nlp - qwen1.5b::avg_nlp,3.032,1.512,4.671,0.000
+qwen1.5b::anchor_ent - qwen1.5b::avg_ent,1.255,-0.220,2.869,0.051
+qwen1.5b::sar_nlp - qwen1.5b::avg_nlp,1.170,0.222,2.027,0.005
+qwen1.5b::sar_ent - qwen1.5b::avg_ent,-0.247,-1.086,0.664,0.737
+qwen1.5b::anchor_ent - qwen1.5b::sar_ent,1.501,0.267,2.708,0.010
+qwen1.5b::anchor_nlp - qwen1.5b::sar_nlp,1.862,0.697,3.156,0.002
+qwen3b::anchor_nlp - qwen3b::avg_nlp,2.331,0.875,3.878,0.000
+qwen3b::anchor_ent - qwen3b::avg_ent,1.855,0.393,3.422,0.007
+qwen3b::sar_nlp - qwen3b::avg_nlp,0.826,-0.053,1.703,0.036
+qwen3b::sar_ent - qwen3b::avg_ent,-0.162,-0.984,0.684,0.660
+qwen3b::anchor_ent - qwen3b::sar_ent,2.017,0.748,3.182,0.001
+qwen3b::anchor_nlp - qwen3b::sar_nlp,1.505,0.393,2.713,0.004
+opt1.3b::anchor_nlp - opt1.3b::avg_nlp,3.318,1.649,5.030,0.000
+opt1.3b::anchor_ent - opt1.3b::avg_ent,0.827,-1.042,2.615,0.214
+opt1.3b::sar_nlp - opt1.3b::avg_nlp,1.377,0.434,2.329,0.005
+opt1.3b::sar_ent - opt1.3b::avg_ent,-0.049,-1.134,1.086,0.540
+opt1.3b::anchor_ent - opt1.3b::sar_ent,0.876,-0.791,2.308,0.134
+opt1.3b::anchor_nlp - opt1.3b::sar_nlp,1.942,0.516,3.511,0.002
+pythia1.4b::anchor_nlp - pythia1.4b::avg_nlp,3.334,1.681,4.994,0.000
+pythia1.4b::anchor_ent - pythia1.4b::avg_ent,0.669,-1.252,2.467,0.252
+pythia1.4b::sar_nlp - pythia1.4b::avg_nlp,1.571,0.637,2.442,0.000
+pythia1.4b::sar_ent - pythia1.4b::avg_ent,0.202,-0.986,1.320,0.352
+pythia1.4b::anchor_ent - pythia1.4b::sar_ent,0.467,-1.119,1.882,0.297
+pythia1.4b::anchor_nlp - pythia1.4b::sar_nlp,1.764,0.437,3.185,0.007
+qwen1.5b-inst::anchor_nlp - qwen1.5b-inst::avg_nlp,3.002,1.554,4.617,0.000
+qwen1.5b-inst::anchor_ent - qwen1.5b-inst::avg_ent,1.290,-0.160,2.973,0.052
+qwen1.5b-inst::sar_nlp - qwen1.5b-inst::avg_nlp,1.113,0.198,1.976,0.009
+qwen1.5b-inst::sar_ent - qwen1.5b-inst::avg_ent,-0.267,-1.092,0.631,0.729
+qwen1.5b-inst::anchor_ent - qwen1.5b-inst::sar_ent,1.558,0.277,2.783,0.007
+qwen1.5b-inst::anchor_nlp - qwen1.5b-inst::sar_nlp,1.889,0.758,3.162,0.000

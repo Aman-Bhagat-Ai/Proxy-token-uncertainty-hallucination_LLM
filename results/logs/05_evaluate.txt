@@ -1,0 +1,93 @@
+{
+ "n_passages": 238,
+ "n_sentences": 1908,
+ "label_counts": {
+  "major_inaccurate": 761,
+  "minor_inaccurate": 631,
+  "accurate": 516
+ },
+ "random_baseline": {
+  "NonFact": 72.95597484276729,
+  "NonFact*": 29.71813725490196,
+  "Factual": 27.044025157232703
+ },
+ "random_baseline_paper": {
+  "NonFact": 72.96,
+  "NonFact*": 29.72,
+  "Factual": 27.04
+ },
+ "nonfact_star_kept_sentences": 1632,
+ "random_scores_aucpr_mean_of_10": 73.57744466058026,
+ "selfcheck_nli_ours": {
+  "NonFact": 92.50025412063549,
+  "NonFact*": 45.16001211150857,
+  "Factual": 66.08400191509307,
+  "AUROC": 83.69336407377706,
+  "Pearson": 74.13050746658642,
+  "Spearman": 73.7665674632352
+ },
+ "selfcheck_nli_paper": {
+  "NonFact": 92.5,
+  "NonFact*": 45.17,
+  "Factual": 66.08,
+  "Pearson": 74.14,
+  "Spearman": 73.78
+ }
+}
+        model          score  NonFact  NonFact*  Factual  AUROC  Pearson  Spearman
+     qwen0.5b        avg_nlp    66.34     23.18    22.12  39.96   -46.73    -42.25
+     qwen0.5b        max_nlp    68.71     24.32    23.30  42.98   -45.01    -42.32
+     qwen0.5b        avg_ent    69.46     26.72    23.87  44.72   -20.54    -18.87
+     qwen0.5b        max_ent    72.21     27.11    25.43  48.41   -20.98    -18.74
+     qwen0.5b        sar_nlp    66.94     23.86    22.46  40.93   -41.27    -37.54
+     qwen0.5b        sar_ent    68.90     26.11    23.59  43.82   -21.05    -19.09
+     qwen0.5b     anchor_nlp    68.95     24.92    24.44  45.03   -28.58    -26.87
+     qwen0.5b     anchor_ent    70.30     27.42    25.49  46.47    -9.61    -11.23
+     qwen0.5b anchor_max_nlp    71.03     25.11    25.20  46.77   -31.63    -31.05
+     qwen1.5b        avg_nlp    67.30     22.93    22.99  41.72   -43.15    -36.74
+     qwen1.5b        max_nlp    68.95     23.63    23.69  43.02   -46.93    -43.64
+     qwen1.5b        avg_ent    70.54     25.99    24.89  46.75   -18.08    -13.61
+     qwen1.5b        max_ent    72.83     26.69    25.86  49.42   -17.68    -15.60
+     qwen1.5b        sar_nlp    68.47     23.57    23.98  43.86   -35.37    -29.59
+     qwen1.5b        sar_ent    70.29     25.26    25.05  46.29   -16.20    -11.36
+     qwen1.5b     anchor_nlp    70.33     24.77    26.47  48.11   -20.04    -16.47
+     qwen1.5b     anchor_ent    71.79     26.84    27.39  49.80    -1.42     -1.14
+     qwen1.5b anchor_max_nlp    71.54     24.72    26.56  48.12   -29.62    -27.89
+       qwen3b        avg_nlp    68.37     22.77    23.48  42.80   -39.16    -33.13
+       qwen3b        max_nlp    70.16     23.76    23.84  44.00   -42.60    -40.74
+       qwen3b        avg_ent    70.65     26.12    24.96  46.95   -19.45    -16.78
+       qwen3b        max_ent    74.19     28.79    25.73  49.58   -15.26    -13.76
+       qwen3b        sar_nlp    69.19     23.36    24.72  44.73   -31.36    -26.34
+       qwen3b        sar_ent    70.48     25.98    25.40  46.85   -15.20    -11.88
+       qwen3b     anchor_nlp    70.70     24.58    26.67  48.10   -16.95    -15.09
+       qwen3b     anchor_ent    72.50     28.47    27.71  50.52     0.22      1.84
+       qwen3b anchor_max_nlp    72.23     24.68    26.49  48.50   -28.92    -28.23
+      opt1.3b        avg_nlp    66.89     22.59    23.01  41.25   -44.89    -40.47
+      opt1.3b        max_nlp    68.90     23.86    24.02  43.47   -43.98    -41.81
+      opt1.3b        avg_ent    72.06     26.14    25.77  48.47   -11.29    -11.09
+      opt1.3b        max_ent    73.70     27.15    26.03  49.37   -14.28    -12.97
+      opt1.3b        sar_nlp    68.27     23.19    24.25  43.58   -40.27    -36.30
+      opt1.3b        sar_ent    72.01     25.20    26.27  49.01   -11.18     -9.74
+      opt1.3b     anchor_nlp    70.21     24.11    25.89  47.06   -28.38    -27.22
+      opt1.3b     anchor_ent    72.88     26.69    27.05  50.29    -3.76     -4.88
+      opt1.3b anchor_max_nlp    71.32     24.81    26.49  47.92   -35.55    -36.09
+   pythia1.4b        avg_nlp    67.04     22.32    22.83  40.78   -48.96    -43.76
+   pythia1.4b        max_nlp    68.09     23.13    23.51  42.25   -49.50    -45.82
+   pythia1.4b        avg_ent    72.56     25.85    25.96  49.03   -12.04    -11.23
+   pythia1.4b        max_ent    73.52     26.68    26.27  48.98   -17.05    -15.16
+   pythia1.4b        sar_nlp    68.61     22.85    24.25  43.78   -43.28    -38.68
+   pythia1.4b        sar_ent    72.76     24.81    26.71  50.25    -9.66     -7.78
+   pythia1.4b     anchor_nlp    70.38     23.74    25.62  46.75   -29.11    -27.28
+   pythia1.4b     anchor_ent    73.23     26.18    27.33  50.72    -3.09     -4.56
+   pythia1.4b anchor_max_nlp    70.61     24.06    26.19  46.96   -37.73    -35.90
+qwen1.5b-inst        avg_nlp    67.54     23.01    23.26  42.34   -42.36    -36.17
+qwen1.5b-inst        max_nlp    69.03     23.50    23.91  43.06   -47.28    -43.72
+qwen1.5b-inst        avg_ent    70.81     26.36    25.29  47.38   -16.17    -11.92
+qwen1.5b-inst        max_ent    72.89     27.34    26.15  49.46   -17.17    -15.53
+qwen1.5b-inst        sar_nlp    68.65     23.60    24.33  44.31   -34.84    -28.73
+qwen1.5b-inst        sar_ent    70.54     25.69    25.45  46.83   -14.25     -9.49
+qwen1.5b-inst     anchor_nlp    70.54     24.73    26.77  48.60   -18.60    -15.64
+qwen1.5b-inst     anchor_ent    72.10     27.08    27.61  50.33     0.24     -0.32
+qwen1.5b-inst anchor_max_nlp    71.60     24.53    26.74  48.24   -29.56    -27.91
+    selfcheck        nli_n20    92.50     45.16    66.08  83.69    74.13     73.77
+done

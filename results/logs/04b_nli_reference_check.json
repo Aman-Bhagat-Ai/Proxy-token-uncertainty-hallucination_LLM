@@ -1,0 +1,7 @@
+{
+ "n_passages": 5,
+ "n_sentences": 45,
+ "max_abs_diff": 0.0004373233468532578,
+ "mean_abs_diff": 8.599532092396254e-05,
+ "pearson": 0.9999998340926168
+}

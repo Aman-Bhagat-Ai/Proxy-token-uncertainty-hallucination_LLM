@@ -164,7 +164,7 @@ generator's own probabilities are available.
 ## Citation
 ```bibtex
 @misc{bhagat2026proxy,
-  author = {Bhagat, Aman},
+  author = {Aman Bhagat},
   title  = {Do Small Proxy Models Know When GPT-3 Hallucinates? Token-Level Uncertainty, Semantic-Anchor Weighting and Two-Stage Screening},
   year   = {2026},
   note   = {IIIT Allahabad, AI Tools for Research, Lab 02},
